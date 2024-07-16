@@ -1,0 +1,14 @@
+.Step {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background-color: var(--first-color);
+  transition: transform 0.3s ease;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}
