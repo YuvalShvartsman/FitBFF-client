@@ -9,11 +9,20 @@ function HomepageStepper() {
   return (
     <Box className="Stepper">
       {steps.map((week, key) => (
-        <Box className="Week" key={key}>
-          {week.sessions.map((step, key) => (
-            <Step step={step} key={key} />
-          ))}
-        </Box>
+        <>
+          <Box className="WeekHeader">{"week:" + week.week}</Box>
+
+          <Box className="Week" key={key}>
+            {week.sessions.map((step, key) => (
+              <Step
+                step={step}
+                key={key}
+                amountOfSteps={week.sessions.length}
+                stepNum={key}
+              />
+            ))}
+          </Box>
+        </>
       ))}
     </Box>
   );

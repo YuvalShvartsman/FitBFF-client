@@ -3,12 +3,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75px !important;
-  width: 75px !important;
+  flex-direction: column;
+  height: 100px !important;
+  width: 100px !important;
   border-radius: 50% !important;
-  background-color: var(--first-color) !important;
+  background: linear-gradient(
+    130deg,
+    var(--first-color) 30%,
+    var(--second-color) 30%,
+
+    var(--second-color) 45%,
+    var(--first-color) 45%,
+
+    var(--first-color) 60%,
+    var(--second-color) 60%
+  ) !important;
   transition: transform 0.3s ease !important;
   color: white !important;
-  font-size: 9px !important;
+  font-size: 0.5rem !important;
   font-weight: bold !important;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-color) 0px -10px 0px inset;
+  cursor: pointer;
+}
+
+.Step:focus,
+.Step:hover {
+  transform: translateY(4px);
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-color) 0px -7px 0px inset;
+  border: 0px !important;
+  outline: none !important;
+}
+
+.Golden {
+  background: linear-gradient(
+    130deg,
+    var(--first-gold) 30%,
+    var(--second-gold) 30%,
+
+    var(--second-gold) 45%,
+    var(--first-gold) 45%,
+
+    var(--first-gold) 60%,
+    var(--second-gold) 60%
+  ) !important;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-gold) 0px -10px 0px inset !important;
+}
+
+.Golden:focus,
+.Golden:hover {
+  transform: translateY(4px);
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-gold) 0px -7px 0px inset !important;
+}
+
+.StepIcon {
+  font-size: 25px !important;
+  color: var(--text) !important;
 }

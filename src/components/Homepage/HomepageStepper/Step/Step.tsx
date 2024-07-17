@@ -1,35 +1,46 @@
 import "./Step.css";
 
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
+
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import CheckIcon from "@mui/icons-material/Check";
 
 type StepProps = {
   step: {
     id: number;
-    num: number;
     type: string;
     icon: string;
+    isComplete?: boolean;
+    isGolden?: boolean;
   };
+  stepNum: number;
+  amountOfSteps: number;
 };
 
 type Position = "left" | "top";
 
-function Step({ step }: StepProps) {
+function Step({ step, stepNum, amountOfSteps }: StepProps) {
   const CalcPosition = (position: Position) => {
     if (position === "left")
-      return `${38 + 20 * Math.sin((2 * Math.PI * step.num) / 7)}%`;
-    else if (position === "top") return `${step.num * 14}%`;
+      return `${42 + 20 * Math.sin((2 * Math.PI * stepNum) / amountOfSteps)}%`;
+    else if (position === "top") return `${stepNum * 14.7}%`;
   };
 
   return (
     <Button
       key={step.id}
-      className="Step"
+      className={!step.isGolden ? "Step" : "Step Golden"}
       style={{
         top: CalcPosition("top"),
         left: CalcPosition("left"),
       }}
     >
       {step.type}
+      {step.isComplete ? (
+        <CheckIcon className="StepIcon" fontSize="large" />
+      ) : (
+        <FitnessCenterIcon className="StepIcon" />
+      )}
     </Button>
   );
 }
