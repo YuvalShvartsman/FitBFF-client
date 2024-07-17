@@ -1,6 +1,6 @@
 import "./Step.css";
 
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 type StepProps = {
   step: {
@@ -11,19 +11,26 @@ type StepProps = {
   };
 };
 
+type Position = "left" | "top";
+
 function Step({ step }: StepProps) {
-  console.log(Math.sin(step.num * 180));
+  const CalcPosition = (position: Position) => {
+    if (position === "left")
+      return `${38 + 20 * Math.sin((2 * Math.PI * step.num) / 7)}%`;
+    else if (position === "top") return `${step.num * 14}%`;
+  };
+
   return (
-    <Box
+    <Button
       key={step.id}
       className="Step"
       style={{
-        top: `${step.num * 14}%`,
-        left: `${38 + 20 * Math.sin((2 * Math.PI * step.num) / 7)}%`,
+        top: CalcPosition("top"),
+        left: CalcPosition("left"),
       }}
     >
       {step.type}
-    </Box>
+    </Button>
   );
 }
 

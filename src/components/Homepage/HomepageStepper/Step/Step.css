@@ -1,14 +1,14 @@
 .Step {
-  position: absolute;
+  position: absolute !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  background-color: var(--first-color);
-  transition: transform 0.3s ease;
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
+  height: 75px !important;
+  width: 75px !important;
+  border-radius: 50% !important;
+  background-color: var(--first-color) !important;
+  transition: transform 0.3s ease !important;
+  color: white !important;
+  font-size: 9px !important;
+  font-weight: bold !important;
 }
