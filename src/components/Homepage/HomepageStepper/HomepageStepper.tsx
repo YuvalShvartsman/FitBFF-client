@@ -19,7 +19,19 @@ function HomepageStepper() {
             <Typography className="WeekTitle">
               {"focus - " + week.title}
             </Typography>
-            <Tooltip title={week.desc}>
+            <Tooltip
+              title={week.desc}
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    fontSize: "18px",
+                    padding: "10px",
+                    bgcolor: "#09008882",
+                    borderRadius: "20px",
+                  },
+                },
+              }}
+            >
               <Typography className="WeekDescription">
                 <DescriptionIcon />
               </Typography>

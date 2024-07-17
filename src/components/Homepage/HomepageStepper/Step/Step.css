@@ -20,7 +20,7 @@
   ) !important;
   transition: transform 0.3s ease !important;
   color: white !important;
-  font-size: 0.5rem !important;
+  font-size: 12px !important;
   font-weight: bold !important;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-color) 0px -10px 0px inset;
