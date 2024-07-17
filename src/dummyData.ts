@@ -1,6 +1,8 @@
 export const steps = [
   {
     week: 1,
+    title: "Power Building",
+    desc: "In this week we are going to focus on both power and volume. We will start each workout with functional exercises and continue working on isolated exercises with greater volume",
     sessions: [
       {
         id: 0,
@@ -25,6 +27,9 @@ export const steps = [
   },
   {
     week: 2,
+    title: "Power",
+    desc: "In this week we focus on power! We shall put all of our attention onto our functional exercises and we will try as hard as we can to push our weights to full RM",
+
     sessions: [
       { id: 7, type: "Core", icon: "randomAssIcon" },
       { id: 8, type: "Cardio", icon: "randomAssIcon" },
@@ -37,6 +42,9 @@ export const steps = [
   },
   {
     week: 3,
+    title: "Volume",
+    desc: "In this week we focus volume! It is important to build the base amount of muscle to progress",
+
     sessions: [
       { id: 14, type: "Back&Legs", icon: "randomAssIcon" },
       { id: 15, type: "Chest&Arms", icon: "randomAssIcon" },

@@ -19,6 +19,7 @@
 }
 
 .WeekHeader {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,6 +27,34 @@
   width: 100%;
   color: var(--text);
   background-color: var(--first-color);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.WeekNumber {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: var(--text);
+  font-weight: bold !important;
+}
+
+.WeekTitle {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: var(--text);
+  font-weight: 800 !important;
+  font-size: 20px !important;
+}
+
+.WeekDescription {
+  position: absolute;
+  right: 5px;
+  position: absolute;
+  color: var(--text);
+  font-weight: 800 !important;
+  font-size: 20px !important;
+  cursor: pointer;
 }
 
 .MuiDivider-root {
