@@ -57,15 +57,14 @@ button:focus-visible {
 
 *::-webkit-scrollbar {
   background-color: var(--second-color) !important;
-  border-radius: 1rem;
-  margin-top: 10px 5px 10px 5px;
+  /* border-radius: 1rem; */
   background-clip: padding-box;
   width: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
   background: var(--fifth-color) !important;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   background-clip: padding-box;
 }
 
