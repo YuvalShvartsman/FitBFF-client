@@ -5,6 +5,7 @@ import { Box, Button } from "@mui/material";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import CheckIcon from "@mui/icons-material/Check";
 import { Session } from "../../../../types/Session";
+import { useEffect, useState } from "react";
 
 type StepProps = {
   session: Session;
@@ -21,6 +22,8 @@ function Step({
   amountOfSteps,
   currentSessionId,
 }: StepProps) {
+  const [randomPos, setRandomPos] = useState("");
+
   const CalcPosition = (position: Position) => {
     if (position === "left")
       return `${
@@ -28,6 +31,14 @@ function Step({
       }%`;
     else if (position === "top") return `${sessionNum * 14.7}%`;
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRandomPos(`${Math.random() * 50}px`);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -50,12 +61,20 @@ function Step({
           left: CalcPosition("left"),
         }}
       >
-        {session.type}
-        {session.isComplete ? (
-          <CheckIcon className="StepIcon" fontSize="large" />
-        ) : (
-          <FitnessCenterIcon className="StepIcon" />
-        )}
+        <Box className="StepContainer">
+          {session.type}
+          {session.isGolden && (
+            <Box
+              className="Sparkle"
+              sx={{ top: randomPos, left: randomPos }}
+            ></Box>
+          )}
+          {session.isComplete ? (
+            <CheckIcon className="StepIcon" fontSize="large" />
+          ) : (
+            <FitnessCenterIcon className="StepIcon" />
+          )}
+        </Box>
       </Button>
     </>
   );

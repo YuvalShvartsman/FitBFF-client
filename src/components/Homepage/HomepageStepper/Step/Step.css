@@ -1,3 +1,116 @@
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.Step {
+  position: absolute !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px !important;
+  width: 100px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(
+    130deg,
+    var(--first-color) 30%,
+    var(--second-color) 30%,
+    var(--second-color) 45%,
+    var(--first-color) 45%,
+    var(--first-color) 60%,
+    var(--second-color) 60%
+  ) !important;
+  transition: transform 0.3s ease !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-color) 0px -10px 0px inset;
+  cursor: pointer;
+}
+
+.Step:focus,
+.Step:hover {
+  transform: translateY(4px);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--forth-color) 0px -7px 0px inset;
+  border: 0px !important;
+  outline: none !important;
+}
+
+.StepContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90% !important;
+  width: 90% !important;
+  border-radius: 50% !important;
+}
+
+.Sparkle {
+  position: absolute;
+  height: 6px !important;
+  width: 6px;
+  background-color: rgba(255, 255, 255, 0.658);
+  border-radius: 50%;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.Golden {
+  background: linear-gradient(
+    130deg,
+    var(--first-gold) 30%,
+    var(--second-gold) 30%,
+    var(--second-gold) 45%,
+    var(--first-gold) 45%,
+    var(--first-gold) 60%,
+    var(--second-gold) 60%
+  ) !important;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--forth-gold) 0px -10px 0px inset !important;
+}
+
+.Golden::before,
+.Golden::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+}
+
+/* Step Icon Styles */
+.StepIcon {
+  font-size: 25px !important;
+  color: var(--text) !important;
+}
+
+/* Float Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .StartContainer {
   position: absolute !important;
   width: fit-content !important;
@@ -17,10 +130,8 @@
     130deg,
     var(--first-color) 30%,
     var(--second-color) 30%,
-
     var(--second-color) 45%,
     var(--first-color) 45%,
-
     var(--first-color) 60%,
     var(--second-color) 60%
   ) !important;
@@ -35,18 +146,6 @@
   animation: float 3s ease-in-out infinite;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 .StartContainerRectangle::after {
   content: "";
   position: absolute;
@@ -55,78 +154,8 @@
   transform: translateX(-50%);
   width: 0;
   height: 0;
-
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 21px solid var(--text);
   z-index: 4;
-}
-
-.Step {
-  position: absolute !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100px !important;
-  width: 100px !important;
-  border-radius: 50% !important;
-  background: linear-gradient(
-    130deg,
-    var(--first-color) 30%,
-    var(--second-color) 30%,
-
-    var(--second-color) 45%,
-    var(--first-color) 45%,
-
-    var(--first-color) 60%,
-    var(--second-color) 60%
-  ) !important;
-  transition: transform 0.3s ease !important;
-  color: white !important;
-  font-size: 12px !important;
-  font-weight: bold !important;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-color) 0px -10px 0px inset;
-  cursor: pointer;
-}
-
-.Step:focus,
-.Step:hover {
-  transform: translateY(4px);
-
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--forth-color) 0px -7px 0px inset;
-  border: 0px !important;
-  outline: none !important;
-}
-
-.Golden {
-  background: linear-gradient(
-    130deg,
-    var(--first-gold) 30%,
-    var(--second-gold) 30%,
-
-    var(--second-gold) 45%,
-    var(--first-gold) 45%,
-
-    var(--first-gold) 60%,
-    var(--second-gold) 60%
-  ) !important;
-
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--forth-gold) 0px -10px 0px inset !important;
-}
-
-.Golden:focus,
-.Golden:hover {
-  transform: translateY(4px);
-
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, var(--third-gold) 0px -7px 0px inset !important;
-}
-
-.StepIcon {
-  font-size: 25px !important;
-  color: var(--text) !important;
 }
