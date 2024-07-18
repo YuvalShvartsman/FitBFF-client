@@ -1,47 +1,63 @@
 import "./Step.css";
 
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import CheckIcon from "@mui/icons-material/Check";
+import { Session } from "../../../../types/Session";
 
 type StepProps = {
-  step: {
-    id: number;
-    type: string;
-    icon: string;
-    isComplete?: boolean;
-    isGolden?: boolean;
-  };
-  stepNum: number;
+  session: Session;
+  sessionNum: number;
   amountOfSteps: number;
+  currentSessionId: number | null;
 };
 
 type Position = "left" | "top";
 
-function Step({ step, stepNum, amountOfSteps }: StepProps) {
+function Step({
+  session,
+  sessionNum,
+  amountOfSteps,
+  currentSessionId,
+}: StepProps) {
   const CalcPosition = (position: Position) => {
     if (position === "left")
-      return `${42 + 20 * Math.sin((2 * Math.PI * stepNum) / amountOfSteps)}%`;
-    else if (position === "top") return `${stepNum * 14.7}%`;
+      return `${
+        42 + 20 * Math.sin((2 * Math.PI * sessionNum) / amountOfSteps)
+      }%`;
+    else if (position === "top") return `${sessionNum * 14.7}%`;
   };
 
   return (
-    <Button
-      key={step.id}
-      className={!step.isGolden ? "Step" : "Step Golden"}
-      style={{
-        top: CalcPosition("top"),
-        left: CalcPosition("left"),
-      }}
-    >
-      {step.type}
-      {step.isComplete ? (
-        <CheckIcon className="StepIcon" fontSize="large" />
-      ) : (
-        <FitnessCenterIcon className="StepIcon" />
+    <>
+      {currentSessionId === session.id && (
+        <Box
+          className="StartContainer"
+          sx={{
+            top: `calc(${CalcPosition("top")} - 115px)`,
+            left: `calc(${CalcPosition("left")} - 65px)`,
+          }}
+        >
+          <Button className="StartContainerRectangle">Start</Button>
+        </Box>
       )}
-    </Button>
+      <Button
+        key={session.id}
+        className={!session.isGolden ? "Step" : "Step Golden"}
+        sx={{
+          top: CalcPosition("top"),
+          left: CalcPosition("left"),
+        }}
+      >
+        {session.type}
+        {session.isComplete ? (
+          <CheckIcon className="StepIcon" fontSize="large" />
+        ) : (
+          <FitnessCenterIcon className="StepIcon" />
+        )}
+      </Button>
+    </>
   );
 }
 

@@ -6,8 +6,11 @@ import { steps } from "../../../dummyData";
 import Step from "./Step/Step";
 
 import DescriptionIcon from "@mui/icons-material/Description";
+import { findCurrentSession } from "../../../helperFuncs/findCurrentSession";
 
 function HomepageStepper() {
+  const currentSessionId = findCurrentSession(steps);
+
   return (
     <Box className="Stepper">
       {steps.map((week, key) => (
@@ -39,12 +42,13 @@ function HomepageStepper() {
           </Box>
 
           <Box className="Week" key={key}>
-            {week.sessions.map((step, key) => (
+            {week.sessions.map((session, key) => (
               <Step
-                step={step}
+                session={session}
                 key={key}
                 amountOfSteps={week.sessions.length}
-                stepNum={key}
+                sessionNum={key}
+                currentSessionId={currentSessionId}
               />
             ))}
           </Box>

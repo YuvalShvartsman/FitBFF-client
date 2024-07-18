@@ -1,3 +1,67 @@
+.StartContainer {
+  position: absolute !important;
+  width: fit-content !important;
+  height: fit-content !important;
+  z-index: 1 !important;
+  outline: none !important;
+}
+
+.StartContainerRectangle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px !important;
+  height: 75px !important;
+  background-color: var(--first-color) !important;
+  background: linear-gradient(
+    130deg,
+    var(--first-color) 30%,
+    var(--second-color) 30%,
+
+    var(--second-color) 45%,
+    var(--first-color) 45%,
+
+    var(--first-color) 60%,
+    var(--second-color) 60%
+  ) !important;
+  position: relative !important;
+  top: 50px !important; /* Adjust these values to position the rectangle */
+  left: 50px !important; /* Adjust these values to position the rectangle */
+  color: var(--text) !important;
+  border-radius: 20px !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  border: 1px solid white !important;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.StartContainerRectangle::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 21px solid var(--text);
+  z-index: 4;
+}
+
 .Step {
   position: absolute !important;
   display: flex;
