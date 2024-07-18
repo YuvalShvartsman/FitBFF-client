@@ -1,6 +1,8 @@
-export const steps = [
+import { Week } from "./types/Week";
+
+export const steps: Week[] = [
   {
-    week: 1,
+    weekNum: 1,
     title: "Power Building",
     desc: "In this week we are going to focus on both power and volume. We will start each workout with functional exercises and continue working on isolated exercises with greater volume",
     sessions: [
@@ -26,7 +28,7 @@ export const steps = [
     ],
   },
   {
-    week: 2,
+    weekNum: 2,
     title: "Power",
     desc: "In this week we focus on power! We shall put all of our attention onto our functional exercises and we will try as hard as we can to push our weights to full RM",
 
@@ -41,7 +43,7 @@ export const steps = [
     ],
   },
   {
-    week: 3,
+    weekNum: 3,
     title: "Volume",
     desc: "In this week we focus volume! It is important to build the base amount of muscle to progress",
 

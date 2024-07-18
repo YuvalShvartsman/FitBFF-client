@@ -1,7 +1,7 @@
 import { Session } from "./Session";
 
-export type Step = {
-  week: number;
+export type Week = {
+  weekNum: number;
   title: string;
   desc: string;
 

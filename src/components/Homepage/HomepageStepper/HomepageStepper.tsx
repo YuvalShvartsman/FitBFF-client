@@ -1,11 +1,12 @@
 import "./HomePageStepper.css";
 
-import { Box, Tooltip, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 import { steps } from "../../../dummyData";
-import Step from "./Step/Step";
 
-import DescriptionIcon from "@mui/icons-material/Description";
+import Step from "./Step/Step";
+import WeekHeader from "./WeekHeader/WeekHeader";
+
 import { findCurrentSession } from "../../../helperFuncs/findCurrentSession";
 
 function HomepageStepper() {
@@ -15,31 +16,7 @@ function HomepageStepper() {
     <Box className="Stepper">
       {steps.map((week, key) => (
         <>
-          <Box className="WeekHeader">
-            <Typography className="WeekNumber">
-              {"week - " + week.week}
-            </Typography>
-            <Typography className="WeekTitle">
-              {"focus - " + week.title}
-            </Typography>
-            <Tooltip
-              title={week.desc}
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    fontSize: "18px",
-                    padding: "10px",
-                    bgcolor: "#09008882",
-                    borderRadius: "20px",
-                  },
-                },
-              }}
-            >
-              <Typography className="WeekDescription">
-                <DescriptionIcon />
-              </Typography>
-            </Tooltip>
-          </Box>
+          <WeekHeader week={week} />
 
           <Box className="Week" key={key}>
             {week.sessions.map((session, key) => (

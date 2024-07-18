@@ -21,7 +21,7 @@ function CurrentSessionIdentifier({
           "top",
           sessionNum,
           amountOfSteps
-        )} - 95px)`,
+        )} - 95px)`, // Need to calculate the location of this div because it does'nt have the same size as the StopButton
         left: `calc(${CalcStepPosition(
           "left",
           sessionNum,
