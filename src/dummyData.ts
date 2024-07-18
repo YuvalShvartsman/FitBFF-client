@@ -21,7 +21,7 @@ export const steps = [
       { id: 2, isComplete: true, type: "Core", icon: "randomAssIcon" },
       { id: 3, isComplete: true, type: "Cardio", icon: "randomAssIcon" },
       { id: 4, isComplete: true, type: "Back&Legs", icon: "randomAssIcon" },
-      { id: 5, isComplete: true, type: "Chest&Arms", icon: "randomAssIcon" },
+      { id: 5, type: "Chest&Arms", icon: "randomAssIcon" },
       { id: 6, type: "Rest", icon: "randomAssIcon" },
     ],
   },

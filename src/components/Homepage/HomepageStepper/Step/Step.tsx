@@ -4,9 +4,13 @@ import { Box, Button } from "@mui/material";
 
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import CheckIcon from "@mui/icons-material/Check";
+
 import { Session } from "../../../../types/Session";
+
 import { CalcStepPosition } from "../../../../helperFuncs/CalcStepPosition";
+
 import Sparkle from "./Sparkle/Sparkle";
+import CurrentSessionIdentifier from "./CurrentSessionIdentifier/CurrentSessionIdentifier";
 
 type StepProps = {
   session: Session;
@@ -24,23 +28,10 @@ function Step({
   return (
     <>
       {currentSessionId === session.id && (
-        <Box
-          className="StartContainer"
-          sx={{
-            top: `calc(${CalcStepPosition(
-              "top",
-              sessionNum,
-              amountOfSteps
-            )} - 95px)`,
-            left: `calc(${CalcStepPosition(
-              "left",
-              sessionNum,
-              amountOfSteps
-            )} - 50px)`,
-          }}
-        >
-          <Button className="StartContainerRectangle">Start</Button>
-        </Box>
+        <CurrentSessionIdentifier
+          sessionNum={sessionNum}
+          amountOfSteps={amountOfSteps}
+        />
       )}
       <Button
         key={session.id}
