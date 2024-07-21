@@ -1,10 +1,8 @@
-import './App.css'
-import Login from "./components/Login/GoogleLogin/GoogleLogin"
+import "./App.css";
+import Login from "./components/Login/GoogleLogin/GoogleLogin";
 
 function App() {
-
-  return <Login/>;
+  return <Login />;
 }
 
-
-export default App
+export default App;
