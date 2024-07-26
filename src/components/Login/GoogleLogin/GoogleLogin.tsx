@@ -2,13 +2,18 @@ import UseGoogleLogin from "./UseGoogleLogin/UseGoogleLogin";
 
 import instance from "../../../axiosInstance";
 
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/userSlice";
+
 const clientId =
   "20513430831-2s88uppgtrbfomn25p7ooui5qfmluv7k.apps.googleusercontent.com";
 
 function GoogleLogin() {
+  const dispatch = useDispatch();
   const onLoginSuccess = async (token: string) => {
     try {
-      await instance.post("/users/google-signIn", { token });
+      const response = await instance.post("/users/google-signIn", { token });
+      dispatch(setUser(response.data));
     } catch (error) {}
   };
 
