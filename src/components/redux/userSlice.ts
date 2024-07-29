@@ -1,8 +1,7 @@
-import { Google } from "@mui/icons-material";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UserState {
-  isAuthenticated: boolean;
+  token: string;
   googleId: string;
   email: string;
   name: string;
@@ -10,7 +9,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  isAuthenticated: false,
+  token: "",
   googleId: "",
   email: "",
   name: "",
@@ -22,7 +21,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<UserState>) {
-      state.isAuthenticated = true;
+      state.token = action.payload.token;
       state.googleId = action.payload.googleId;
       state.email = action.payload.email;
       state.name = action.payload.name;

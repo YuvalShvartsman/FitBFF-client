@@ -14,7 +14,6 @@ function GoogleLogin() {
     try {
       const response = await instance.post("/users/google-signIn", { token });
       dispatch(setUser(response.data));
-      console.log(response.data);
     } catch (error) {}
   };
 
