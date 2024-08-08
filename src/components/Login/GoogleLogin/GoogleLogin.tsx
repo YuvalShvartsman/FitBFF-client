@@ -12,7 +12,12 @@ function GoogleLogin() {
   const dispatch = useDispatch();
   const onLoginSuccess = async (token: string) => {
     try {
-      const response = await instance.post("/users/google-signIn", { token });
+      const response = await instance.post(
+        "/users/google-signIn",
+        { token },
+        { withCredentials: true }
+      );
+
       dispatch(setUser(response.data));
     } catch (error) {}
   };
