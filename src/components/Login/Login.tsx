@@ -1,7 +1,7 @@
-import GoogleLogin from "./GoogleLogin/GoogleLogin"
+import GoogleLogin from "./GoogleLogin/GoogleLogin";
 
-function Login(){
-    return <GoogleLogin/>;
+function Login() {
+  return <GoogleLogin />;
 }
 
-export default Login
+export default Login;
