@@ -1,3 +1,5 @@
+import "./GoogleLogin.css";
+
 import UseGoogleLogin from "./UseGoogleLogin/UseGoogleLogin";
 
 import instance from "../../../axiosInstance";
@@ -8,12 +10,14 @@ import { setUser } from "../../redux/userSlice";
 import { Box, Button, Typography } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 
-import "./GoogleLogin.css";
+import { useNavigate } from "react-router-dom";
 
 const clientId =
   "20513430831-2s88uppgtrbfomn25p7ooui5qfmluv7k.apps.googleusercontent.com";
 
 function GoogleLogin() {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const onLoginSuccess = async (token: string) => {
     try {
@@ -23,6 +27,7 @@ function GoogleLogin() {
         { withCredentials: true }
       );
 
+      navigate("/user-preferences");
       dispatch(setUser(response.data));
     } catch (error) {}
   };
