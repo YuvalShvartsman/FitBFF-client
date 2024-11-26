@@ -4,7 +4,7 @@ import { Box, Button, FormControl, Input, InputLabel } from "@mui/material";
 
 function UserPreferences() {
   return (
-    <Box className="PreferencesForm">~
+    <Box className="PreferencesForm">
       <FormControl className="Form">
         <InputLabel className="Lables">Weight</InputLabel>
         <Input />
