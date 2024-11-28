@@ -2,9 +2,9 @@ import "./App.css";
 
 import UserPreferences from "./components/UserPreferences/UserPreferences";
 import Login from "./components/Login/Login";
+import HomePage from "./components/Homepage/Homepage";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./components/Homepage/Homepage";
 
 function App() {
   return (

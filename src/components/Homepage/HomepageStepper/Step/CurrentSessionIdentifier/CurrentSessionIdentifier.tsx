@@ -3,6 +3,7 @@ import "./CurrentSessionIdentifier.css";
 import { Box, Button } from "@mui/material";
 
 import { CalcStepPosition } from "../../../../../helperFuncs/CalcStepPosition";
+import { useState } from "react";
 
 type CurrentSessionIdentifierProps = {
   sessionNum: number;
