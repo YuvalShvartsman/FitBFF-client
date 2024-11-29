@@ -5,7 +5,7 @@ import UseGoogleLogin from "./UseGoogleLogin/UseGoogleLogin";
 import instance from "../../../axiosInstance";
 
 import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/userSlice";
+import { setUser } from "../../../redux/userSlice";
 
 import { Box, Button, Typography } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
