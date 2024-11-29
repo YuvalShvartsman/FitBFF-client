@@ -6,6 +6,8 @@ import { UserState } from "../../redux/userSlice";
 
 import { Box, Button, TextField } from "@mui/material";
 
+import instance from "../../axiosInstance";
+
 import { UserPreferencesType } from "../../types/UserPreferencesType";
 import "./UserPreferences.css";
 
@@ -31,8 +33,15 @@ function UserPreferences() {
     }));
   };
 
-  const handleSubmit = () => {
-    navigate("/homepage");
+  const handleSubmit = async () => {
+    try {
+      await instance.post("/userPreferences/submitUserData", {
+        formData,
+        id: state.user.user.googleId,
+      });
+
+      navigate("/homepage");
+    } catch (error) {}
   };
 
   return (
