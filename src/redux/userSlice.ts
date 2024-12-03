@@ -19,7 +19,6 @@ const userSlice = createSlice({
     setUser(state, action: PayloadAction<UserState>) {
       state.token = action.payload.token;
       state.user = action.payload.user;
-      console.log(state.user);
     },
     logout(state) {
       state = initialState;
