@@ -1,9 +1,8 @@
-import { Session } from "./Session";
+import { WorkoutType } from "./Workout";
 
 export type Week = {
   weekNum: number;
   title: string;
   desc: string;
-
-  sessions: Session[];
+  workouts: WorkoutType[];
 };

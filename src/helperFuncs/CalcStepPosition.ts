@@ -2,10 +2,10 @@ type Position = "left" | "top";
 
 export const CalcStepPosition = (
   position: Position,
-  sessionNum: number,
+  workoutNum: number,
   amountOfSteps: number
 ) => {
   if (position === "left")
-    return `${42 + 20 * Math.sin((2 * Math.PI * sessionNum) / amountOfSteps)}%`;
-  else if (position === "top") return `${sessionNum * 14.7}%`;
+    return `${42 + 20 * Math.sin((2 * Math.PI * workoutNum) / amountOfSteps)}%`;
+  else if (position === "top") return `${workoutNum * 14.7}%`;
 };

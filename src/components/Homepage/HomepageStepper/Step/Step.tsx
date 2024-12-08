@@ -5,46 +5,60 @@ import { Box, Button } from "@mui/material";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import CheckIcon from "@mui/icons-material/Check";
 
-import { Session } from "../../../../types/Session";
+import { WorkoutType } from "../../../../types/Workout";
 
 import { CalcStepPosition } from "../../../../helperFuncs/CalcStepPosition";
 
 import Sparkle from "./Sparkle/Sparkle";
-import CurrentSessionIdentifier from "./CurrentSessionIdentifier/CurrentSessionIdentifier";
+import CurrentWorkoutIdentifier from "./CurrentWorkoutIdentifier/CurrentWorkoutIdentifier";
+import { WorkoutDialog } from "./WorkoutDialog";
+import { useState } from "react";
 
 type StepProps = {
-  session: Session;
-  sessionNum: number;
+  workout: WorkoutType;
+  workoutNum: number;
   amountOfSteps: number;
-  currentSessionId: number | null;
+  currentWorkoutId: number | null;
 };
 
 function Step({
-  session,
-  sessionNum,
+  workout,
+  workoutNum,
   amountOfSteps,
-  currentSessionId,
+  currentWorkoutId,
 }: StepProps) {
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+
+  const workoutClicked = () => {
+    setOpenDialog(true);
+  };
+
   return (
     <>
-      {currentSessionId === session.id && (
-        <CurrentSessionIdentifier
-          sessionNum={sessionNum}
+      <WorkoutDialog
+        openDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+        workout={workout}
+      />
+      {currentWorkoutId === workout.id && (
+        <CurrentWorkoutIdentifier
+          workoutNum={workoutNum}
           amountOfSteps={amountOfSteps}
         />
       )}
       <Button
-        key={session.id}
-        className={!session.isGolden ? "Step" : "Step Golden"}
+        key={workout.id}
+        className={!workout.isGolden ? "Step" : "Step Golden"}
         sx={{
-          top: CalcStepPosition("top", sessionNum, amountOfSteps),
-          left: CalcStepPosition("left", sessionNum, amountOfSteps),
+          top: CalcStepPosition("top", workoutNum, amountOfSteps),
+          left: CalcStepPosition("left", workoutNum, amountOfSteps),
         }}
+        onClick={workoutClicked}
       >
         <Box className="StepContainer">
-          {session.type}
-          {session.isGolden && <Sparkle />}
-          {session.isComplete ? (
+          {workout.type}
+          {workout.isGolden && <Sparkle />}
+          {workout.isComplete ? (
             <CheckIcon className="StepIcon" fontSize="large" />
           ) : (
             <FitnessCenterIcon className="StepIcon" />

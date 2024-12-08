@@ -1,31 +1,30 @@
-import "./CurrentSessionIdentifier.css";
+import "./CurrentWorkout.css";
 
 import { Box, Button } from "@mui/material";
 
 import { CalcStepPosition } from "../../../../../helperFuncs/CalcStepPosition";
-import { useState } from "react";
 
-type CurrentSessionIdentifierProps = {
-  sessionNum: number;
+type CurrentWorkoutIdentifierProps = {
+  workoutNum: number;
   amountOfSteps: number;
 };
 
-function CurrentSessionIdentifier({
+function CurrentWorkoutIdentifier({
   amountOfSteps,
-  sessionNum,
-}: CurrentSessionIdentifierProps) {
+  workoutNum: workoutNum,
+}: CurrentWorkoutIdentifierProps) {
   return (
     <Box
       className="StartContainer"
       sx={{
         top: `calc(${CalcStepPosition(
           "top",
-          sessionNum,
+          workoutNum,
           amountOfSteps
         )} - 95px)`, // Need to calculate the location of this div because it does'nt have the same size as the StopButton
         left: `calc(${CalcStepPosition(
           "left",
-          sessionNum,
+          workoutNum,
           amountOfSteps
         )} - 50px)`,
       }}
@@ -35,4 +34,4 @@ function CurrentSessionIdentifier({
   );
 }
 
-export default CurrentSessionIdentifier;
+export default CurrentWorkoutIdentifier;

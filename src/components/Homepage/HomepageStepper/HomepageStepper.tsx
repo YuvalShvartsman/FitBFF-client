@@ -7,29 +7,30 @@ import { steps } from "../../../dummyData";
 import Step from "./Step/Step";
 import WeekHeader from "./WeekHeader/WeekHeader";
 
-import { findCurrentSession } from "../../../helperFuncs/findCurrentSession";
+import { findCurrentWorkout } from "../../../helperFuncs/findCurrentWorkout";
+import React from "react";
 
 function HomepageStepper() {
-  const currentSessionId = findCurrentSession(steps);
+  const currentWorkoutId = findCurrentWorkout(steps);
 
   return (
     <Box className="Stepper">
       {steps.map((week, key) => (
-        <>
-          <WeekHeader week={week} />
+        <React.Fragment key={"Fragment" + key}>
+          <WeekHeader key={"weekHeader" + key} week={week} />
 
-          <Box className="Week" key={key}>
-            {week.sessions.map((session, key) => (
+          <Box className="Week" key={"week" + key}>
+            {week.workouts.map((workout, key) => (
               <Step
-                session={session}
+                workout={workout}
                 key={key}
-                amountOfSteps={week.sessions.length}
-                sessionNum={key}
-                currentSessionId={currentSessionId}
+                amountOfSteps={week.workouts.length}
+                workoutNum={key}
+                currentWorkoutId={currentWorkoutId}
               />
             ))}
           </Box>
-        </>
+        </React.Fragment>
       ))}
     </Box>
   );
