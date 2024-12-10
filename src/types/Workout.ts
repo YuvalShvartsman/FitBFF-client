@@ -6,20 +6,21 @@ export type WorkoutType = {
 
   exercises: ExcerciseType[];
   workoutName: string;
-  type: GOAL_Type;
+  type: GoalType;
 };
 
 export type ExcerciseType = {
   exerciseName: string;
   numOfSets: number;
   numOfRepsPerSet: number;
+  repsPerSetLitrely: number[];
   restTimePerSet: number;
-  muscleGroup: MUSCLEGROUP_Type;
+  muscleGroup: MuscleGroupType;
   isDone: boolean;
-  type: DiFFICULTY_LEVEL_Type;
+  type: DifficultyLevelType;
   exerciseDiscription: string;
 };
 
-export type GOAL_Type = "MuscleGain" | "Endurance" | "Health" | "PowerLifting";
-export type MUSCLEGROUP_Type = "Legs" | "Chest" | "Arms";
-export type DiFFICULTY_LEVEL_Type = "begginer" | "intermadiant";
+export type GoalType = "MuscleGain" | "Endurance" | "Health" | "PowerLifting";
+export type MuscleGroupType = "Legs" | "Chest" | "Arms";
+export type DifficultyLevelType = "begginer" | "intermadiant";

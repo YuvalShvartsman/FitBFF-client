@@ -74,6 +74,7 @@ export const WorkoutDialog = ({
       </>
     );
   };
+
   return (
     <>
       <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
