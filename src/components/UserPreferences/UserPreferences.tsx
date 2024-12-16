@@ -35,9 +35,10 @@ function UserPreferences() {
 
   const handleSubmit = async () => {
     try {
+      console.log(state.user.user._id);
       await instance.post("/userPreferences/submitUserData", {
         formData,
-        id: state.user.user.googleId,
+        id: state.user.user._id,
       });
 
       navigate("/homepage");

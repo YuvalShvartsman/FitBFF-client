@@ -9,7 +9,7 @@ export type UserState = {
 
 const initialState: UserState = {
   token: "",
-  user: { googleId: "", email: "", name: "", picture: "" },
+  user: { _id: "", googleId: "", email: "", name: "", picture: "" },
 };
 
 const userSlice = createSlice({
