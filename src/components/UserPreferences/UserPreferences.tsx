@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 import { UserState } from "../../redux/userSlice";
 
-import { Box, Button, TextField } from "@mui/material";
+import { Autocomplete, Box, Button, TextField } from "@mui/material";
 
 import instance from "../../axiosInstance";
 
-import { UserPreferencesType } from "../../types/UserPreferencesType";
+import UserPreferencesType, {
+  formSchema,
+} from "../../types/UserPreferencesType";
 import "./UserPreferences.css";
+import Swal from "sweetalert2";
 
 function UserPreferences() {
   const state = useSelector((state: { user: UserState }) => state);
@@ -20,12 +23,16 @@ function UserPreferences() {
     height: 0,
     weight: 0,
     experienceLevel: 0,
-    goal: "Muscle Gain",
+    goal: "",
     planLengthPreference: 0,
     workoutsPerWeek: 0,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | { target: { name: string; value: string | null } }
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -34,14 +41,31 @@ function UserPreferences() {
   };
 
   const handleSubmit = async () => {
-    try {
-      console.log(state.user.user._id);
-      await instance.post("/userPreferences/submitUserData", {
-        formData,
-        id: state.user.user._id,
-      });
+    const a = formSchema.safeParse(formData);
 
-      navigate("/homepage");
+    try {
+      if (a.success) {
+        await instance.post("/userPreferences/submitUserData", {
+          formData,
+          id: state.user.user._id,
+        });
+        Swal.fire({
+          title: "data submission completed",
+          text: "You logged in!",
+          icon: "success",
+        });
+        navigate("/homepage");
+      } else {
+        let errors = "";
+        for (let index = 0; index < a.error.errors.length; index++) {
+          errors += a.error.errors[index].message + " \n";
+        }
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          html: "<pre>" + errors + "</pre>",
+        });
+      }
     } catch (error) {}
   };
 
@@ -71,12 +95,16 @@ function UserPreferences() {
         variant="outlined"
         fullWidth
       />
-      <TextField
-        label="goal"
-        name="goal"
+      <Autocomplete
+        disablePortal
+        options={["Muscle Gain", "Endurance", "Recovery", "Power Lifting"]}
+        onChange={(e, a) => {
+          handleChange({ target: { name: "goal", value: a || "" } });
+        }}
+        renderInput={(params) => (
+          <TextField {...params} label="goal" name="goal" />
+        )}
         value={formData.goal}
-        onChange={handleChange}
-        variant="outlined"
         fullWidth
       />
       <TextField
