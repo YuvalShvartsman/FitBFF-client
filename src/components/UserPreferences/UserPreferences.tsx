@@ -8,9 +8,10 @@ import { Autocomplete, Box, Button, TextField } from "@mui/material";
 
 import instance from "../../axiosInstance";
 
-import UserPreferencesType, {
-  formSchema,
-} from "../../types/UserPreferencesType";
+import UserPreferencesType from "../../types/UserPreferencesType";
+
+import formSchema from "../../types/formSchema.ts";
+
 import "./UserPreferences.css";
 import Swal from "sweetalert2";
 
@@ -23,26 +24,22 @@ function UserPreferences() {
     height: 0,
     weight: 0,
     experienceLevel: 0,
-    goal: "",
+    goal: "Muscle Gain",
     planLengthPreference: 0,
     workoutsPerWeek: 0,
   });
 
-  const handleChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | { target: { name: string; value: string | null } }
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]:
+        value === "" ? null : isNaN(Number(value)) ? value : Number(value),
     }));
   };
 
   const handleSubmit = async () => {
     const a = formSchema.safeParse(formData);
-
     try {
       if (a.success) {
         await instance.post("/userPreferences/submitUserData", {
@@ -98,8 +95,11 @@ function UserPreferences() {
       <Autocomplete
         disablePortal
         options={["Muscle Gain", "Endurance", "Recovery", "Power Lifting"]}
-        onChange={(e, a) => {
-          handleChange({ target: { name: "goal", value: a || "" } });
+        onChange={(_e, a) => {
+          setFormData((prev) => ({
+            ...prev,
+            goal: a || "",
+          }));
         }}
         renderInput={(params) => (
           <TextField {...params} label="goal" name="goal" />
@@ -107,6 +107,7 @@ function UserPreferences() {
         value={formData.goal}
         fullWidth
       />
+
       <TextField
         label="planLengthPreference"
         name="planLengthPreference"
