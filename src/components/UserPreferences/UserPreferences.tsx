@@ -30,11 +30,11 @@ function UserPreferences() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
+    const parsedValue = type === "number" ? Number(value) : value;
     setFormData((prev) => ({
       ...prev,
-      [name]:
-        value === "" ? null : isNaN(Number(value)) ? value : Number(value),
+      [name]: parsedValue,
     }));
   };
 
@@ -74,6 +74,7 @@ function UserPreferences() {
         value={formData.height}
         onChange={handleChange}
         variant="outlined"
+        type="number"
         fullWidth
       />
       <TextField
@@ -82,6 +83,7 @@ function UserPreferences() {
         value={formData.weight}
         onChange={handleChange}
         variant="outlined"
+        type="number"
         fullWidth
       />
       <TextField
@@ -90,6 +92,7 @@ function UserPreferences() {
         value={formData.experienceLevel}
         onChange={handleChange}
         variant="outlined"
+        type="number"
         fullWidth
       />
       <Autocomplete
@@ -114,6 +117,7 @@ function UserPreferences() {
         value={formData.planLengthPreference}
         onChange={handleChange}
         variant="outlined"
+        type="number"
         fullWidth
       />
       <TextField
@@ -122,6 +126,7 @@ function UserPreferences() {
         value={formData.workoutsPerWeek}
         onChange={handleChange}
         variant="outlined"
+        type="number"
         fullWidth
       />
       <Button
