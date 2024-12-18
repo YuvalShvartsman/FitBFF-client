@@ -1,20 +1,15 @@
-import "./App.css";
-
-import UserPreferences from "./components/UserPreferences/UserPreferences";
-import Login from "./components/Login/Login";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { useNavigate } from "react-router-dom";
+import Homepage from "./components/Homepage/Homepage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/user-preferences" element={<UserPreferences />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="bg-gold-100 size-11 w-full font-light">dsadsad</div>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Homepage />} />
+    //   </Routes>
+    // </BrowserRouter>
   );
 }
 
