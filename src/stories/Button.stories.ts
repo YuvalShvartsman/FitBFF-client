@@ -38,3 +38,10 @@ export const CustomText: Story = {
     disabled: false,
   },
 };
+
+export const Loading: Story = {
+  args: {
+    text: "Custom Label",
+    loading: true,
+  },
+};
