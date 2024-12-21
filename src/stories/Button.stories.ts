@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "../components/shared/Button";
+import { FaBeer } from "react-icons/fa";
 
 const meta: Meta<typeof Button> = {
   title: "Example/Button",
@@ -32,10 +33,10 @@ export const Disabled: Story = {
   },
 };
 
-export const CustomText: Story = {
+export const Icon: Story = {
   args: {
-    text: "Custom Label",
-    disabled: false,
+    Icon: FaBeer,
+    text: "Icon Button",
   },
 };
 
