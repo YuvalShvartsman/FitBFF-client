@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
 import { X } from "lucide-react";
-
 import Button from "./Button";
 
 type ModalProps = {
@@ -32,6 +30,20 @@ const Modal = ({
   onAction,
   actionDisabled = false,
 }: ModalProps) => {
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setShouldRender(true);
+    } else {
+      // Wait for animation to complete before unmounting
+      const timer = setTimeout(() => {
+        setShouldRender(false);
+      }, 300); // Match this with your animation duration
+      return () => clearTimeout(timer);
+    }
+  }, [open]);
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -50,7 +62,7 @@ const Modal = ({
     };
   }, [open, handleClose]);
 
-  if (!open) return null;
+  if (!shouldRender) return null;
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (allowClickOutside && e.target === e.currentTarget) {
@@ -66,16 +78,31 @@ const Modal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900/50 backdrop-blur-sm transition-all "
+      className={`
+        fixed inset-0 z-50 flex items-center justify-center overflow-y-auto 
+        transition-all duration-300
+        ${
+          open
+            ? "bg-gray-900/50 backdrop-blur-sm"
+            : "bg-gray-900/0 backdrop-blur-none"
+        }
+      `}
       onClick={handleBackdropClick}
     >
       <div
-        className={`relative w-full ${sizeClasses[size]} transform rounded bg-light dark:bg-dark shadow-xl transition-all motion-preset-slide-right-lg`}
+        className={`
+          motion-preset-slide-right-lg
+          relative w-full ${
+            sizeClasses[size]
+          } transform rounded bg-light dark:bg-dark shadow-xl 
+          transition-all duration-700 ease-in-out
+          ${open ? "translate-x-0" : "-translate-x-full"}
+        `}
         role="dialog"
         aria-modal="true"
       >
         {(title || showCloseButton) && (
-          <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-6 py-6 ">
+          <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-6 py-6">
             {title && (
               <h3 className="text-lg font-medium leading-6 text-gray-800 dark:text-gray-100">
                 {title}
