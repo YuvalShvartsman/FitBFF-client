@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Snackbar from "../components/shared/Snackbar";
 
 type SnackbarProps = {
+  open: boolean;
+  onClose: () => void;
   title: string;
   type: "success" | "warning" | "error";
   description: string;
@@ -25,6 +27,8 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
+    open: { control: "boolean" },
+    onClose: { action: "onClose" },
     type: { control: "radio", options: ["success", "warning", "error"] },
     placement: {
       control: "radio",
@@ -46,6 +50,8 @@ type Story = StoryObj<typeof meta>;
 
 export const AutoCloseSuccess: Story = {
   args: {
+    open: true,
+    onClose: () => {},
     title: "Auto-Close Success!",
     type: "success",
     description: "This snackbar will auto-close after 3 seconds.",
@@ -57,6 +63,8 @@ export const AutoCloseSuccess: Story = {
 
 export const SuccessTopRight: Story = {
   args: {
+    open: true,
+    onClose: () => {},
     title: "Success!",
     type: "success",
     description: "Your action was completed successfully.",
@@ -67,6 +75,8 @@ export const SuccessTopRight: Story = {
 
 export const WarningBottomLeft: Story = {
   args: {
+    open: true,
+    onClose: () => {},
     title: "Warning!",
     type: "warning",
     description: "There might be an issue with your action.",
@@ -77,6 +87,8 @@ export const WarningBottomLeft: Story = {
 
 export const ErrorCenter: Story = {
   args: {
+    open: true,
+    onClose: () => {},
     title: "Error!",
     type: "error",
     description: "Something went wrong. Please try again.",
@@ -87,6 +99,8 @@ export const ErrorCenter: Story = {
 
 export const ManualCloseWarning: Story = {
   args: {
+    open: true,
+    onClose: () => {},
     title: "Manual Close Warning!",
     type: "warning",
     description: "You can manually close this snackbar.",

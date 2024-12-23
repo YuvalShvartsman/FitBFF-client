@@ -4,6 +4,8 @@ import { BiErrorCircle } from "react-icons/bi";
 import { MdWarning } from "react-icons/md";
 
 type SnackbarProps = {
+  open: boolean;
+  onClose: () => void;
   title: string;
   type: "success" | "warning" | "error";
   description: string;
@@ -15,6 +17,8 @@ type SnackbarProps = {
 );
 
 const Snackbar = ({
+  open,
+  onClose,
   title,
   type,
   description,
@@ -22,7 +26,6 @@ const Snackbar = ({
   autoClose = false,
   duration,
 }: SnackbarProps) => {
-  const [visible, setVisible] = useState(true);
   const [progress, setProgress] = useState(100);
 
   const typeStyles = {
@@ -52,7 +55,7 @@ const Snackbar = ({
   };
 
   useEffect(() => {
-    if (autoClose && duration) {
+    if (open && autoClose && duration) {
       const progressInterval = setInterval(() => {
         setProgress((prev) => {
           if (prev <= 0) return 0;
@@ -61,7 +64,7 @@ const Snackbar = ({
       }, 10);
 
       const timer = setTimeout(() => {
-        setVisible(false);
+        onClose();
       }, duration);
 
       return () => {
@@ -69,9 +72,15 @@ const Snackbar = ({
         clearInterval(progressInterval);
       };
     }
-  }, [autoClose, duration]);
+  }, [open, autoClose, duration, onClose]);
 
-  if (!visible) return null;
+  useEffect(() => {
+    if (!open) {
+      setProgress(100); // Reset progress when the snackbar is closed
+    }
+  }, [open]);
+
+  if (!open) return null;
 
   return (
     <div
@@ -85,7 +94,7 @@ const Snackbar = ({
           <p className="text-sm">{description}</p>
         </div>
         <button
-          onClick={() => setVisible(false)}
+          onClick={onClose}
           className="ml-3 text-gray-500 hover:text-gray-800"
           aria-label="Close"
         >
