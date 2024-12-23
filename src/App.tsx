@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage/Homepage";
 import { useState } from "react";
 import Modal from "./components/shared/Modal";
+import { Button } from "@mui/material";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -19,6 +20,7 @@ function App() {
         size="medium"
         actionLabel="Make me coffee"
         onAction={() => setOpen(false)}
+        children={<>dsadsadsadsa</>}
       />
     </div>
     // <BrowserRouter>

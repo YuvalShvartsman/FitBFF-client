@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+
 import { X } from "lucide-react";
+
 import Button from "./Button";
 
 type ModalProps = {
@@ -64,16 +66,16 @@ const Modal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900/50 backdrop-blur-sm transition-all"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900/50 backdrop-blur-sm transition-all "
       onClick={handleBackdropClick}
     >
       <div
-        className={`relative w-full ${sizeClasses[size]} transform rounded bg-light dark:bg-dark shadow-xl transition-all`}
+        className={`relative w-full ${sizeClasses[size]} transform rounded bg-light dark:bg-dark shadow-xl transition-all motion-preset-slide-right-lg`}
         role="dialog"
         aria-modal="true"
       >
         {(title || showCloseButton) && (
-          <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+          <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-6 py-6 ">
             {title && (
               <h3 className="text-lg font-medium leading-6 text-gray-800 dark:text-gray-100">
                 {title}
@@ -92,26 +94,26 @@ const Modal = ({
         )}
 
         {/* Content */}
-        <div className="px-6 py-4 text-gray-800 dark:text-gray-200">
+        <div className="px-6 py-6 text-gray-800 dark:text-gray-200">
           {children}
         </div>
 
         {/* Action Buttons */}
         {(actionLabel || cancelLabel) && (
-          <div className="flex items-center justify-end gap-3 border-t border-gray-200 dark:border-gray-700 px-6 py-4">
+          <div className="flex items-center justify-end gap-3 border-t border-gray-200 dark:border-gray-700 px-6 py-6">
             {cancelLabel && (
-              <button
+              <Button
                 onClick={handleClose}
-                className="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
-              >
-                {cancelLabel}
-              </button>
+                text={cancelLabel}
+                variant="ghost"
+              />
             )}
             {actionLabel && onAction && (
               <Button
                 onClick={onAction}
                 disabled={actionDisabled}
                 text={actionLabel}
+                variant="primary"
               />
             )}
           </div>

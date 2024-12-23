@@ -46,3 +46,10 @@ export const Loading: Story = {
     loading: true,
   },
 };
+
+export const Ghost: Story = {
+  args: {
+    text: "Custom Label",
+    variant: "ghost",
+  },
+};
