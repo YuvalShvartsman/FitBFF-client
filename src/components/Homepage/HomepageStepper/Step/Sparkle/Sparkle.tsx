@@ -1,6 +1,7 @@
 import "./Sparkle.css";
 
 import { Box } from "@mui/material";
+
 import useGetRandomPosition from "../../../../../customHooks/useGetRandomPosition";
 
 function Sparkle() {
