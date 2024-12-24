@@ -1,10 +1,8 @@
-import "./Homepage.css";
-
 import HomepageStepper from "./HomepageStepper/HomepageStepper";
 
 function Homepage() {
   return (
-    <div className="Homepage">
+    <div className="flex justify-center items-center w-full h-full bg-dark ">
       <HomepageStepper />
     </div>
   );
