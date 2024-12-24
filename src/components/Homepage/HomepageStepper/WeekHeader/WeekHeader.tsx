@@ -1,10 +1,7 @@
-import { Week } from "../../../../types/Week";
-
-import "./WeekHeader.css";
-
-import { Box, Typography, Tooltip } from "@mui/material";
-
 import DescriptionIcon from "@mui/icons-material/Description";
+
+import { Week } from "../../../../types/Week";
+import Tooltip from "../../../shared/Tooltip";
 
 type WeekHeaderProps = {
   week: Week;
@@ -12,27 +9,19 @@ type WeekHeaderProps = {
 
 function WeekHeader({ week }: WeekHeaderProps) {
   return (
-    <Box className="WeekHeader">
-      <Typography className="WeekNumber">{"week - " + week.weekNum}</Typography>
-      <Typography className="WeekTitle">{"focus - " + week.title}</Typography>
-      <Tooltip
-        title={week.desc}
-        componentsProps={{
-          tooltip: {
-            sx: {
-              fontSize: "18px",
-              padding: "10px",
-              bgcolor: "#09008882",
-              borderRadius: "20px", // sx is needed to get into the css of the Tooltip.
-            },
-          },
-        }}
-      >
-        <Typography className="WeekDescription">
+    <div className="relative flex items-center justify-center h-[12vh] w-full text-light bg-blue-900 shadow-lg rounded">
+      <span className="absolute top-5 left-5 font-bold">
+        {"week - " + week.weekNum}
+      </span>
+      <span className="absolute bottom-5 left-5 font-extrabold text-xl">
+        {"focus - " + week.title}
+      </span>
+      <Tooltip content={week.desc} position="bottom">
+        <span className="absolute right-5 font-extrabold text-xl cursor-pointer">
           <DescriptionIcon />
-        </Typography>
+        </span>
       </Tooltip>
-    </Box>
+    </div>
   );
 }
 
