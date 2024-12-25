@@ -1,6 +1,8 @@
-import DescriptionIcon from "@mui/icons-material/Description";
-import { Week } from "../../../../types/Week";
-import Tooltip from "../../../shared/Tooltip";
+import { FaInfoCircle } from "react-icons/fa";
+
+import Tooltip from "../../shared/Tooltip";
+
+import { Week } from "../../../types/Week";
 
 type WeekHeaderProps = {
   week: Week;
@@ -18,7 +20,7 @@ function WeekHeader({ week }: WeekHeaderProps) {
         </span>
         <div className="absolute right-5">
           <Tooltip content={week.desc} position="bottom" width="30rem">
-            <DescriptionIcon className="cursor-pointer" />
+            <FaInfoCircle className="cursor-pointer text-3xl" />
           </Tooltip>
         </div>
       </div>

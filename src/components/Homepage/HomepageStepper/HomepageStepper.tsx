@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { steps } from "../../../dummyData";
 
 import Step from "./Step/Step";
-import WeekHeader from "./WeekHeader/WeekHeader";
+import WeekHeader from "./WeekHeader";
 
 import { findCurrentSession } from "../../../helperFuncs/findCurrentSession";
 
