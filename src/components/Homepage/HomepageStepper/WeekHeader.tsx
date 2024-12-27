@@ -9,7 +9,7 @@ type WeekHeaderProps = {
 function WeekHeader({ week }: WeekHeaderProps) {
   return (
     <div className="flex  h-[100px] w-full text-light bg-blue-200 shadow-lg rounded-xl first:mt-16 justify-between items-center p-10">
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col  ">
         <span className=" font-extrabold text-xl">
           {"focus - " + week.title}
         </span>
