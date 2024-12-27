@@ -11,12 +11,12 @@ function HomepageStepper() {
   const currentSessionId = findCurrentSession(steps);
 
   return (
-    <div className="self-center flex flex-col items-center w-[800px] overflow-y-auto">
+    <div className="self-center flex flex-col items-center w-[650px] overflow-y-auto">
       {steps.map((week, weekIndex) => (
         <React.Fragment key={`week-${weekIndex}`}>
           <WeekHeader week={week} />
 
-          <div className="relative h-[1000px] w-full mt-12 mb-12">
+          <div className="relative h-[850px] w-full mt-12 mb-12">
             {week.sessions.map((session, sessionIndex) => (
               <Step
                 session={session}
