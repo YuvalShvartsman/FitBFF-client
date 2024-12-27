@@ -1,5 +1,3 @@
-import { Box } from "@mui/material";
-
 import { steps } from "../../../dummyData";
 
 import Step from "./Step/Step";
@@ -11,12 +9,12 @@ function HomepageStepper() {
   const currentSessionId = findCurrentSession(steps);
 
   return (
-    <Box className="flex flex-col items-center min-w-[35%] h-fit bg-dark overflow-y-auto overflow-x-hidden mt-5 ">
+    <div className="flex flex-col items-center min-w-[35%] h-fit bg-dark overflow-y-auto overflow-x-hidden mt-5 ">
       {steps.map((week, key) => (
         <>
           <WeekHeader week={week} />
 
-          <Box
+          <div
             className="relative min-h-[120vh] w-10/12 bg-none mt-2 p-8"
             key={key}
           >
@@ -29,10 +27,10 @@ function HomepageStepper() {
                 currentSessionId={currentSessionId}
               />
             ))}
-          </Box>
+          </div>
         </>
       ))}
-    </Box>
+    </div>
   );
 }
 
