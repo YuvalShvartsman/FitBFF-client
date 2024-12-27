@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 @layer utilities {
+  *::-webkit-scrollbar {
+    background-color: #02006c !important;
+    background-clip: padding-box !important;
+    width: 15px !important;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #03002e !important;
+    background-clip: padding-box !important;
+    border-radius: 20px !important;
+    border: 2px solid #02006c !important;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #010048 !important;
+    background-clip: padding-box !important;
+  }
+
   .blue-step-gradient {
     background: linear-gradient(
       130deg,
