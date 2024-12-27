@@ -1,8 +1,4 @@
-import "./CurrentSessionIdentifier.css";
-
-import { Box, Button } from "@mui/material";
-
-import { calcStepPosition } from "../../../../../helperFuncs/calcStepPosition";
+import { calcStepPosition } from "../../../../helperFuncs/calcStepPosition";
 
 type CurrentSessionIdentifierProps = {
   sessionNum: number;
@@ -14,14 +10,14 @@ function CurrentSessionIdentifier({
   sessionNum,
 }: CurrentSessionIdentifierProps) {
   return (
-    <Box
-      className="StartContainer"
-      sx={{
+    <div
+      className="absolute z-10 outline-none"
+      style={{
         top: `calc(${calcStepPosition(
           "top",
           sessionNum,
           amountOfSteps
-        )} - 95px)`, // Need to calculate the location of this div because it does'nt have the same size as the StopButton
+        )} - 95px)`,
         left: `calc(${calcStepPosition(
           "left",
           sessionNum,
@@ -29,8 +25,15 @@ function CurrentSessionIdentifier({
         )} - 50px)`,
       }}
     >
-      <Button className="StartContainerRectangle">Start</Button>
-    </Box>
+      <button
+        className="flex justify-center items-center w-[100px] h-[50px] 
+        relative top-[50px] left-[50px] text-light font-bold text-lg border border-white rounded-lg
+        animate-float triangle-pointer blue-step-gradient
+        "
+      >
+        Start
+      </button>
+    </div>
   );
 }
 

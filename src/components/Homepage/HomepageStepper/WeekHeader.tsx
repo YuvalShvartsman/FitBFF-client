@@ -10,7 +10,7 @@ type WeekHeaderProps = {
 
 function WeekHeader({ week }: WeekHeaderProps) {
   return (
-    <div className="relative flex items-center justify-center h-[12vh] w-full text-light bg-blue-900 shadow-lg rounded">
+    <div className="relative flex items-center justify-center h-[12vh] w-full text-light bg-blue-200 shadow-lg rounded">
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="absolute top-5 left-5 font-bold">
           {"week - " + week.weekNum}

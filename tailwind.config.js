@@ -115,10 +115,16 @@ module.exports = {
         sparkle: {
           '0%, 100%': { opacity: 0 },
           '50%': { opacity: 1 }
-        }
+        },
+        float: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
-        sparkle: 'sparkle 3s ease-in-out infinite'
+        sparkle: 'sparkle 3s ease-in-out infinite',
+        float: "float 3s ease-in-out infinite",
       }
     }
   },

@@ -6,7 +6,7 @@ import { Session } from "../../../../types/Session";
 import { calcStepPosition } from "../../../../helperFuncs/calcStepPosition";
 
 import Sparkle from "./Sparkle";
-import CurrentSessionIdentifier from "./CurrentSessionIdentifier/CurrentSessionIdentifier";
+import CurrentSessionIdentifier from "./CurrentSessionIdentifier";
 
 type StepProps = {
   session: Session;
