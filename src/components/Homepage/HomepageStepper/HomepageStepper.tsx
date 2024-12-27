@@ -1,21 +1,22 @@
+import React from "react";
+
 import { steps } from "../../../dummyData";
 
 import Step from "./Step/Step";
 import WeekHeader from "./WeekHeader";
 
 import { findCurrentSession } from "../../../helperFuncs/findCurrentSession";
-import React from "react";
 
 function HomepageStepper() {
   const currentSessionId = findCurrentSession(steps);
 
   return (
-    <div className="flex flex-col items-center min-w-[35%] h-fit bg-dark overflow-y-auto overflow-x-hidden mt-5">
+    <div className="self-center flex flex-col items-center w-[800px] overflow-y-auto">
       {steps.map((week, weekIndex) => (
         <React.Fragment key={`week-${weekIndex}`}>
           <WeekHeader week={week} />
 
-          <div className="relative min-h-[120vh] w-10/12 bg-none mt-2 p-8">
+          <div className="relative h-[1000px] w-full mt-12 mb-12">
             {week.sessions.map((session, sessionIndex) => (
               <Step
                 session={session}

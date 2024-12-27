@@ -1,7 +1,5 @@
 import { FaInfoCircle } from "react-icons/fa";
 
-import Tooltip from "../../shared/Tooltip";
-
 import { Week } from "../../../types/Week";
 
 type WeekHeaderProps = {
@@ -10,19 +8,15 @@ type WeekHeaderProps = {
 
 function WeekHeader({ week }: WeekHeaderProps) {
   return (
-    <div className="relative flex items-center justify-center h-[12vh] w-full text-light bg-blue-200 shadow-lg rounded">
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="absolute top-5 left-5 font-bold">
-          {"week - " + week.weekNum}
-        </span>
-        <span className="absolute bottom-5 left-5 font-extrabold text-xl">
-          {"focus - " + week.title}
-        </span>
-        <div className="absolute right-5">
-          <Tooltip content={week.desc} position="bottom" width="30rem">
-            <FaInfoCircle className="cursor-pointer text-3xl" />
-          </Tooltip>
-        </div>
+    <div className="relative h-[100px] w-[800px] text-light bg-blue-200 shadow-lg rounded-xl first:mt-16 ">
+      <span className="absolute top-5 left-5 font-bold">
+        {"week - " + week.weekNum}
+      </span>
+      <span className="absolute bottom-5 left-5 font-extrabold text-xl">
+        {"focus - " + week.title}
+      </span>
+      <div className="absolute right-5 top-5">
+        <FaInfoCircle className="cursor-pointer text-3xl " />
       </div>
     </div>
   );
