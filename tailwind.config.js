@@ -17,28 +17,19 @@ module.exports = {
       light: "#ffffff",
       dark: "#131f24",
       blue: {
-        50: "#ebf5ff",
-        100: "#d0e9ff",
-        200: "#a6ccff",
-        300: "#7ab0ff",
-        400: "#4e94ff",
-        500: "#236eff",
-        600: "#1a56cc",
-        700: "#1341a3",
-        800: "#0d2d7a",
-        900: "#081c52",
+        100: "#090088",
+        200: "#02006c",
+        300: "#010057",
+        400: "#010048",
+        500: "#03002e",
       },
       gold: {
-        50: "#fff4d1",
-        100: "#ffe8a8",
-        200: "#ffd678",
-        300: "#ffc34a",
-        400: "#ffb124",
-        500: "#e59c00",
-        600: "#b37b00",
-        700: "#805800",
-        800: "#4d3600",
-        900: "#1b1300",
+        100: "#ffd700",
+        200: "#ffc300",
+        300: "#ffb100",
+        400: "#ffa000",
+        500: "#ff8f00",
+
       },
       gray: {
         50: "#f9fafb",
@@ -117,8 +108,19 @@ module.exports = {
         md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
         lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
         xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
+        golden: "0 0 10px rgba(255, 215, 0, 0.6) inset",
+        blue: "0 0 10px rgba(0, 0, 0, 0.3) inset",
       },
-    },
+      keyframes: {
+        sparkle: {
+          '0%, 100%': { opacity: 0 },
+          '50%': { opacity: 1 }
+        }
+      },
+      animation: {
+        sparkle: 'sparkle 1.5s ease-in-out infinite'
+      }
+    }
   },
   plugins: [
     require("tailwindcss-motion"),

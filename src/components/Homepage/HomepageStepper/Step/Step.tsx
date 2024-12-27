@@ -1,13 +1,9 @@
-import "./Step.css";
-
-import { Box, Button } from "@mui/material";
-
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import CheckIcon from "@mui/icons-material/Check";
+import { IoCheckmarkOutline } from "react-icons/io5";
+import { FaDumbbell } from "react-icons/fa6";
 
 import { Session } from "../../../../types/Session";
 
-import { CalcStepPosition } from "../../../../helperFuncs/CalcStepPosition";
+import { calcStepPosition } from "../../../../helperFuncs/CalcStepPosition";
 
 import Sparkle from "./Sparkle/Sparkle";
 import CurrentSessionIdentifier from "./CurrentSessionIdentifier/CurrentSessionIdentifier";
@@ -33,24 +29,34 @@ function Step({
           amountOfSteps={amountOfSteps}
         />
       )}
-      <Button
+      <button
         key={session.id}
-        className={!session.isGolden ? "Step" : "Step Golden"}
-        sx={{
-          top: CalcStepPosition("top", sessionNum, amountOfSteps),
-          left: CalcStepPosition("left", sessionNum, amountOfSteps),
+        className={
+          !session.isGolden
+            ? `absolute flex items-center justify-center h-24 w-24 rounded-full blue-step-gradient blue-step-shadow-custom
+            transition-transform ease-out duration-300 text-xs font-bold text-light
+            hover:translate-y-1 hover:blue-step-shadow-custom-hover active:motion-scale-in-90 active:motion-duration-150
+            `
+            : `absolute flex items-center justify-center h-24 w-24 rounded-full gold-step-gradient gold-step-shadow-custom 
+            transition-transform ease-out duration-300 text-xs font-bold text-light
+            hover:translate-y-1 hover:gold-step-shadow-custom-hover active:motion-scale-in-90 active:motion-duration-150
+            `
+        }
+        style={{
+          top: calcStepPosition("top", sessionNum, amountOfSteps),
+          left: calcStepPosition("left", sessionNum, amountOfSteps),
         }}
       >
-        <Box className="StepContainer">
+        <div className="relative flex items-center justify-center flex-col h-[90%] w-[90%] rounded-full">
           {session.type}
           {session.isGolden && <Sparkle />}
           {session.isComplete ? (
-            <CheckIcon className="StepIcon" fontSize="large" />
+            <IoCheckmarkOutline fontSize="large" />
           ) : (
-            <FitnessCenterIcon className="StepIcon" />
+            <FaDumbbell fontSize="large" />
           )}
-        </Box>
-      </Button>
+        </div>
+      </button>
     </>
   );
 }

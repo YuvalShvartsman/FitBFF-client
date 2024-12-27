@@ -2,7 +2,7 @@ import "./CurrentSessionIdentifier.css";
 
 import { Box, Button } from "@mui/material";
 
-import { CalcStepPosition } from "../../../../../helperFuncs/CalcStepPosition";
+import { calcStepPosition } from "../../../../../helperFuncs/CalcStepPosition";
 
 type CurrentSessionIdentifierProps = {
   sessionNum: number;
@@ -17,12 +17,12 @@ function CurrentSessionIdentifier({
     <Box
       className="StartContainer"
       sx={{
-        top: `calc(${CalcStepPosition(
+        top: `calc(${calcStepPosition(
           "top",
           sessionNum,
           amountOfSteps
         )} - 95px)`, // Need to calculate the location of this div because it does'nt have the same size as the StopButton
-        left: `calc(${CalcStepPosition(
+        left: `calc(${calcStepPosition(
           "left",
           sessionNum,
           amountOfSteps
