@@ -21,6 +21,8 @@ function Step({
   amountOfSteps,
   currentSessionId,
 }: StepProps) {
+  const stepSize = 96;
+  const sparkleSize = 1;
   return (
     <>
       {currentSessionId === session.id && (
@@ -33,11 +35,11 @@ function Step({
         key={session.id}
         className={
           !session.isGolden
-            ? `absolute flex items-center justify-center h-24 w-24 rounded-full blue-step-gradient blue-step-shadow-custom
+            ? `absolute flex items-center justify-center h-[${stepSize}px] w-[${stepSize}px] rounded-full blue-step-gradient blue-step-shadow-custom
             transition-transform ease-out duration-300 text-xs font-bold text-light
             hover:translate-y-1 hover:blue-step-shadow-custom-hover active:motion-scale-in-90 active:motion-duration-150
             `
-            : `absolute flex items-center justify-center h-24 w-24 rounded-full gold-step-gradient gold-step-shadow-custom 
+            : `absolute flex items-center justify-center h-[${stepSize}px] w-[${stepSize}px] rounded-full gold-step-gradient gold-step-shadow-custom 
             transition-transform ease-out duration-300 text-xs font-bold text-light
             hover:translate-y-1 hover:gold-step-shadow-custom-hover active:motion-scale-in-90 active:motion-duration-150
             `
@@ -49,7 +51,9 @@ function Step({
       >
         <div className="relative flex items-center justify-center flex-col h-full w-full rounded-full ">
           {session.type}
-          {session.isGolden && <Sparkle />}
+          {session.isGolden && (
+            <Sparkle sparkleSize={sparkleSize} containerSize={stepSize} />
+          )}
           {session.isComplete ? (
             <IoCheckmarkOutline fontSize="large" />
           ) : (
