@@ -3,9 +3,9 @@ import { FaDumbbell } from "react-icons/fa6";
 
 import { Session } from "../../../../types/Session";
 
-import { calcStepPosition } from "../../../../helperFuncs/CalcStepPosition";
+import { calcStepPosition } from "../../../../helperFuncs/calcStepPosition";
 
-import Sparkle from "./Sparkle/Sparkle";
+import Sparkle from "./Sparkle";
 import CurrentSessionIdentifier from "./CurrentSessionIdentifier/CurrentSessionIdentifier";
 
 type StepProps = {
@@ -47,7 +47,7 @@ function Step({
           left: calcStepPosition("left", sessionNum, amountOfSteps),
         }}
       >
-        <div className="relative flex items-center justify-center flex-col h-[90%] w-[90%] rounded-full">
+        <div className="relative flex items-center justify-center flex-col h-full w-full rounded-full ">
           {session.type}
           {session.isGolden && <Sparkle />}
           {session.isComplete ? (

@@ -118,7 +118,7 @@ module.exports = {
         }
       },
       animation: {
-        sparkle: 'sparkle 1.5s ease-in-out infinite'
+        sparkle: 'sparkle 3s ease-in-out infinite'
       }
     }
   },

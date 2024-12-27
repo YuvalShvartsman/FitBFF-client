@@ -2,7 +2,7 @@ import "./CurrentSessionIdentifier.css";
 
 import { Box, Button } from "@mui/material";
 
-import { calcStepPosition } from "../../../../../helperFuncs/CalcStepPosition";
+import { calcStepPosition } from "../../../../../helperFuncs/calcStepPosition";
 
 type CurrentSessionIdentifierProps = {
   sessionNum: number;
