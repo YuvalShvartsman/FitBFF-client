@@ -1,5 +1,3 @@
-import "./UserPreferences.css";
-
 import { Box, Button, FormControl, Input, InputLabel } from "@mui/material";
 
 function UserPreferences() {

@@ -1,6 +1,4 @@
-import "./GoogleLogin.css";
-
-import UseGoogleLogin from "./UseGoogleLogin/UseGoogleLogin";
+import UseGoogleLogin from "./UseGoogleLogin";
 
 import instance from "../../../axiosInstance";
 
