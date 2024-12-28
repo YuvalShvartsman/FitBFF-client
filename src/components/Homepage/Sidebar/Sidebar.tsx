@@ -90,6 +90,11 @@ const Sidebar = () => {
               />
             ))}
           </div>
+
+          <img
+            src="/Kengy.PNG"
+            className="aspect-auto h-44 absolute bottom-10 left-12 max-laptop:hidden max-phone:hidden"
+          />
         </div>
       </div>
     </div>
