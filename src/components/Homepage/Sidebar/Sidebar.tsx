@@ -80,7 +80,7 @@ const Sidebar = () => {
         </div>
 
         <div className="flex-1">
-          <div className="pt-2 pb-4 text-sm max-phone:flex max-phone:z-50">
+          <div className="pt-2 pb-4 text-sm max-phone:flex max-phone:z-50 laptop:mt-10">
             {sidebarButtons.map((button, index) => (
               <SidebarButton
                 key={index}
