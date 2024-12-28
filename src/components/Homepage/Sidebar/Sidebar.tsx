@@ -61,14 +61,24 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="flex flex-col h-screen p-4 text-white w-72 self-start fixed border-r-[3px] border-gray-100 dark:border-gray-600">
+    <div
+      className="flex h-screen p-4 text-white fixed border-r-[3px] flex-col 
+       w-72 max-laptop:w-32  max-phone:h-24 max-phone:w-full
+       max-phone:bottom-0 max-phone:bg-dark max-phone:justify-center max-phone:border-t-2 max-phone:border-r-0
+     border-gray-100 dark:border-gray-600 z-20"
+    >
       <div className="space-y-3">
         <div className="flex items-center">
-          <h2 className="text-4xl font-bold dark:text-light">Fit BuFF</h2>
+          <h2
+            className="font-bold dark:text-light
+          text-4xl max-laptop:text-2xl max-phone:hidden"
+          >
+            Fit BuFF
+          </h2>
         </div>
 
         <div className="flex-1">
-          <div className="pt-2 pb-4 text-sm">
+          <div className="pt-2 pb-4 text-sm max-phone:flex max-phone:z-50">
             {sidebarButtons.map((button, index) => (
               <SidebarButton
                 key={index}
