@@ -1,7 +1,9 @@
 import { useState } from "react";
-import SidebarButton from "./SidebarButton";
+
 import { FaUserCircle, FaCrown, FaCog, FaMoon, FaSun } from "react-icons/fa";
 import { GiBiceps } from "react-icons/gi";
+
+import SidebarButton from "./SidebarButton";
 
 const Sidebar = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);

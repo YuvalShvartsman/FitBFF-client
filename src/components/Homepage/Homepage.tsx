@@ -1,13 +1,9 @@
 import HomepageStepper from "./HomepageStepper/HomepageStepper";
-import Sidebar from "./Sidebar/Sidebar";
 
 function Homepage() {
   return (
-    <div className="flex dark:bg-dark h-full">
-      <Sidebar />
-      <div className="flex w-full justify-center ">
-        <HomepageStepper />
-      </div>
+    <div className="flex w-full justify-center dark:bg-dark">
+      <HomepageStepper />
     </div>
   );
 }
