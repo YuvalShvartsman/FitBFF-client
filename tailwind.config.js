@@ -69,7 +69,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Segoe UI", "Arial", "sans-serif"],
+      segoe: ["Segoe UI", "Arial", "sans-serif"],
       serif: ["Georgia", "serif"],
       mono: ["Courier New", "monospace"],
     },
