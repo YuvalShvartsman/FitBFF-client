@@ -54,7 +54,7 @@ const Sidebar = () => {
     {
       title: isDarkMode ? "Light Mode" : "Dark Mode",
       icon: isDarkMode ? (
-        <FaSun className="text-yellow-300" />
+        <FaSun className="text-gold-400" />
       ) : (
         <FaMoon className="text-blue-500" />
       ),
