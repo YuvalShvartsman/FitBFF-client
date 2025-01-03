@@ -1,16 +1,12 @@
-import "./Step.css";
-
-import { Box, Button } from "@mui/material";
-
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import CheckIcon from "@mui/icons-material/Check";
+import { IoCheckmarkOutline } from "react-icons/io5";
+import { FaDumbbell } from "react-icons/fa6";
 
 import { Session } from "../../../../types/Session";
 
-import { CalcStepPosition } from "../../../../helperFuncs/CalcStepPosition";
+import { calcStepPosition } from "../../../../helperFuncs/calcStepPosition";
 
-import Sparkle from "./Sparkle/Sparkle";
-import CurrentSessionIdentifier from "./CurrentSessionIdentifier/CurrentSessionIdentifier";
+import Sparkle from "./Sparkle";
+import CurrentSessionIdentifier from "./CurrentSessionIdentifier";
 
 type StepProps = {
   session: Session;
@@ -25,6 +21,8 @@ function Step({
   amountOfSteps,
   currentSessionId,
 }: StepProps) {
+  const stepSize = 96;
+  const sparkleSize = 1;
   return (
     <>
       {currentSessionId === session.id && (
@@ -33,24 +31,38 @@ function Step({
           amountOfSteps={amountOfSteps}
         />
       )}
-      <Button
+      <button
         key={session.id}
-        className={!session.isGolden ? "Step" : "Step Golden"}
-        sx={{
-          top: CalcStepPosition("top", sessionNum, amountOfSteps),
-          left: CalcStepPosition("left", sessionNum, amountOfSteps),
+        className={
+          !session.isGolden
+            ? `absolute flex items-center justify-center rounded-full blue-step-gradient blue-step-shadow-custom
+            transition-transform ease-out duration-300 text-xs font-bold text-light
+            hover:translate-y-1 hover:blue-step-shadow-custom-hover active:motion-scale-in-90 active:motion-duration-150
+            `
+            : `absolute flex items-center justify-center rounded-full gold-step-gradient gold-step-shadow-custom 
+            transition-transform ease-out duration-300 text-xs font-bold text-light
+            hover:translate-y-1 hover:gold-step-shadow-custom-hover active:motion-scale-in-90 active:motion-duration-150
+            `
+        }
+        style={{
+          height: `${stepSize}px`,
+          width: `${stepSize}px`,
+          top: calcStepPosition("top", sessionNum, amountOfSteps),
+          left: calcStepPosition("left", sessionNum, amountOfSteps),
         }}
       >
-        <Box className="StepContainer">
+        <div className="relative flex items-center justify-center flex-col h-full w-full rounded-full ">
           {session.type}
-          {session.isGolden && <Sparkle />}
-          {session.isComplete ? (
-            <CheckIcon className="StepIcon" fontSize="large" />
-          ) : (
-            <FitnessCenterIcon className="StepIcon" />
+          {session.isGolden && (
+            <Sparkle sparkleSize={sparkleSize} containerSize={stepSize} />
           )}
-        </Box>
-      </Button>
+          {session.isComplete ? (
+            <IoCheckmarkOutline fontSize="large" />
+          ) : (
+            <FaDumbbell fontSize="large" />
+          )}
+        </div>
+      </button>
     </>
   );
 }

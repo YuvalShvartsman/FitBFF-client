@@ -1,11 +1,9 @@
-import "./HomePageStepper.css";
-
-import { Box } from "@mui/material";
+import React from "react";
 
 import { steps } from "../../../dummyData";
 
 import Step from "./Step/Step";
-import WeekHeader from "./WeekHeader/WeekHeader";
+import WeekHeader from "./WeekHeader";
 
 import { findCurrentSession } from "../../../helperFuncs/findCurrentSession";
 
@@ -13,25 +11,25 @@ function HomepageStepper() {
   const currentSessionId = findCurrentSession(steps);
 
   return (
-    <Box className="Stepper">
-      {steps.map((week, key) => (
-        <>
+    <div className="self-center flex flex-col items-center min-w-[250px] w-[30%] overflow-y-auto">
+      {steps.map((week, weekIndex) => (
+        <React.Fragment key={`week-${weekIndex}`}>
           <WeekHeader week={week} />
 
-          <Box className="Week" key={key}>
-            {week.sessions.map((session, key) => (
+          <div className="relative h-[850px] w-full mt-12 mb-12">
+            {week.sessions.map((session, sessionIndex) => (
               <Step
                 session={session}
-                key={key}
+                key={session.id || `session-${weekIndex}-${sessionIndex}`}
                 amountOfSteps={week.sessions.length}
-                sessionNum={key}
+                sessionNum={sessionIndex}
                 currentSessionId={currentSessionId}
               />
             ))}
-          </Box>
-        </>
+          </div>
+        </React.Fragment>
       ))}
-    </Box>
+    </div>
   );
 }
 

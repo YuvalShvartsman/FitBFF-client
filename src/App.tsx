@@ -1,10 +1,8 @@
-import "./App.css";
-
-import UserPreferences from "./components/UserPreferences/UserPreferences";
-import Login from "./components/Login/Login";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Homepage from "./components/Homepage/Homepage";
+import Login from "./components/Login/Login";
+import UserPreferences from "./components/UserPreferences/UserPreferences";
 
 function App() {
   return (
