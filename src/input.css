@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  *::-webkit-scrollbar {
+    background-color: #02006c !important;
+    background-clip: padding-box !important;
+    width: 15px !important;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #03002e !important;
+    background-clip: padding-box !important;
+    border-radius: 20px !important;
+    border: 2px solid #02006c !important;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #010048 !important;
+    background-clip: padding-box !important;
+  }
+
+  .blue-step-gradient {
+    background: linear-gradient(
+      130deg,
+      #090088 30%,
+      #02006c 30%,
+      #02006c 45%,
+      #090088 45%,
+      #090088 60%,
+      #02006c 60%
+    );
+  }
+
+  .blue-step-shadow-custom {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #010057 0px -10px 0px inset;
+  }
+
+  .blue-step-shadow-custom-hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #010048 0px -7px 0px inset;
+  }
+
+  .gold-step-gradient {
+    background: linear-gradient(
+      130deg,
+      #ffd700 30%,
+      #ffc300 30%,
+      #ffc300 45%,
+      #ffd700 45%,
+      #ffd700 60%,
+      #ffc300 60%
+    );
+  }
+
+  .gold-step-shadow-custom {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #ffa000 0px -10px 0px inset;
+  }
+
+  .gold-step-shadow-custom-hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #ff8f00 0px -7px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #ff8f00 0px -7px 0px inset,
+      rgba(255, 249, 207, 0.197) 0px 0px 6px 5px;
+  }
+
+  .triangle-pointer::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid white;
+    z-index: 40;
+  }
+}

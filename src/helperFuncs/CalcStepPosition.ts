@@ -1,6 +1,6 @@
 type Position = "left" | "top";
 
-export const CalcStepPosition = (
+export const calcStepPosition = (
   position: Position,
   sessionNum: number,
   amountOfSteps: number
