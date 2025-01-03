@@ -111,7 +111,7 @@ const Modal = ({
             {showCloseButton && (
               <button
                 onClick={handleClose}
-                className="rounded-full p-1.5 text-gray-500 hover:bg-blue-50 hover:text-blue-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-blue-300 transition-colors"
+                className="rounded-full p-1.5 text-gray-500 hover:bg-brightBlue-50 hover:text-brightBlue-500 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-brightBlue-300 transition-colors"
                 aria-label="Close modal"
               >
                 <X className="h-5 w-5" />

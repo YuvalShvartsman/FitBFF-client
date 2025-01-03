@@ -70,13 +70,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               }
               ${
                 isFocused && !error
-                  ? "border-blue-500 ring-2 ring-blue-500/20"
+                  ? "border-brightBlue-500 ring-2 ring-brightBlue-500/20"
                   : ""
               }
               ${
                 disabled
                   ? "bg-gray-100 dark:bg-gray-800 cursor-not-allowed"
-                  : "hover:border-blue-400 dark:hover:border-blue-400"
+                  : "hover:border-brightBlue-400 dark:hover:border-brightBlue-400"
               }
             `}
           >
