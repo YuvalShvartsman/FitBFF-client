@@ -12,7 +12,6 @@ import UserPreferencesType from "../../types/UserPreferencesType";
 
 import formSchema from "../../types/formSchema.ts";
 
-import "./UserPreferences.css";
 import Swal from "sweetalert2";
 
 function UserPreferences() {
@@ -67,7 +66,7 @@ function UserPreferences() {
   };
 
   return (
-    <Box className="PreferencesForm">
+    <div className="bg-blue-100 flex h-4/5 w-1/4 self-center rounded-xl flex-col justify-around items-center">
       <TextField
         label="height"
         name="height"
@@ -137,7 +136,7 @@ function UserPreferences() {
       >
         Submit
       </Button>
-    </Box>
+    </div>
   );
 }
 export default UserPreferences;

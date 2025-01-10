@@ -24,7 +24,7 @@ const Button = ({
       onClick={onClick}
       disabled={disabled || loading}
       className={`
-        relative inline-flex items-center justify-center px-4 py-2 font-semibold rounded transition-all duration-300 transform
+        relative inline-flex items-center justify-center px-4 py-2 font-semibold rounded transition-all duration-300 transform h-14 w-max
         ${
           variant === "primary" &&
           "bg-gradient-to-r from-brightBlue-500 via-brightBlue-600 to-brightBlue-700 text-light shadow-lg hover:shadow-brightBlue-500/50"

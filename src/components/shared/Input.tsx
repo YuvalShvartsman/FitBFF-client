@@ -12,7 +12,7 @@ type InputProps = {
   disabled?: boolean;
   required?: boolean;
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   onClear?: () => void;
 };

@@ -5,10 +5,10 @@ import instance from "../../../axiosInstance";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../redux/userSlice";
 
-import { Box, Button, Typography } from "@mui/material";
-import GoogleIcon from "@mui/icons-material/Google";
+import { FaGoogle as GoogleIcon } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
+import Button from "../../shared/Button";
 
 const clientId =
   "20513430831-2s88uppgtrbfomn25p7ooui5qfmluv7k.apps.googleusercontent.com";
@@ -33,13 +33,16 @@ function GoogleLogin() {
   const { handleLogin } = UseGoogleLogin(clientId, onLoginSuccess);
 
   return (
-    <Box className="Login">
-      <Typography className="LoginHeader">Login</Typography>
-      <Button className="Button" onClick={handleLogin}>
-        <GoogleIcon />
-        Login with Google
-      </Button>
-    </Box>
+    <div className="bg-blue-100 flex h-3/5 w-1/4 self-center rounded-xl flex-col justify-around items-center">
+      <h1 className="w-full text-center text-light text-3xl font-bold">
+        Login
+      </h1>
+      <Button
+        text="Login With Google"
+        Icon={GoogleIcon}
+        onClick={handleLogin}
+      />
+    </div>
   );
 }
 

@@ -1,17 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      phone: "480px", 
-      tablet: "768px", 
-      laptop: "1024px", 
-      desktop: "1280px", 
-      monitor: "1536px", 
+      phone: "480px",
+      tablet: "768px",
+      laptop: "1024px",
+      desktop: "1280px",
+      monitor: "1536px",
     },
     colors: {
       light: "#ffffff",
@@ -41,7 +38,6 @@ module.exports = {
         300: "#ffb100",
         400: "#ffa000",
         500: "#ff8f00",
-
       },
       gray: {
         50: "#f9fafb",
@@ -112,7 +108,7 @@ module.exports = {
         sm: "4px",
         md: "8px",
         lg: "12px",
-        xl: "16px",
+        xl: "20px",
         "2xl": "24px",
       },
       boxShadow: {
@@ -125,8 +121,8 @@ module.exports = {
       },
       keyframes: {
         sparkle: {
-          '0%, 100%': { opacity: 0 },
-          '50%': { opacity: 1 }
+          "0%, 100%": { opacity: 0 },
+          "50%": { opacity: 1 },
         },
         float: {
           "0%": { transform: "translateY(0)" },
@@ -135,12 +131,10 @@ module.exports = {
         },
       },
       animation: {
-        sparkle: 'sparkle 3s ease-in-out infinite',
+        sparkle: "sparkle 3s ease-in-out infinite",
         float: "float 3s ease-in-out infinite",
-      }
-    }
+      },
+    },
   },
-  plugins: [
-    require("tailwindcss-motion"),
-  ],
+  plugins: [require("tailwindcss-motion")],
 };
